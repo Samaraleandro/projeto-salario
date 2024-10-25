@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Lista de Pessoas</title>
+</h:head>
+<h:body>
+    <h1>Lista de Pessoas</h1>
+
+    <h:form>
+        <p:dataTable var="pessoaSalario" value="#{salarioConsolidadoBean.listaPessoasSalarios}"
+                     paginator="true" rows="10" emptyMessage="Nenhum resultado encontrado">
+
+            <p:column headerText="ID da pessoa">
+                <h:outputText value="#{pessoaSalario.pessoa.id}"/>
+            </p:column>
+
+            <p:column headerText="Nome da pessoa">
+                <h:outputText value="#{pessoaSalario.pessoa.nome}"/>
+            </p:column>
+
+            <p:column headerText="Nome do cargo">
+                <h:outputText value="#{pessoaSalario.cargo.nome}"/>
+            </p:column>
+
+            <p:column headerText="Salário da pessoa">
+                <h:outputText value="#{pessoaSalario.salario}"/>
+            </p:column>
+
+        </p:dataTable>
+
+        <h:commandButton value="Calcular Salários" action="#{salarioConsolidadoBean.calcularSalarios}"/>
+    </h:form>
+</h:body>
+</html>
