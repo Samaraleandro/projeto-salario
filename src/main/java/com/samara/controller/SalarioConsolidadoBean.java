@@ -10,7 +10,7 @@ import javax.faces.bean.ViewScoped;
 import com.samara.model.PessoaSalarioConsolidado;
 import com.samara.model.dao.PessoaSalarioConsolidadoDAO;
 
-import service.SalarioCalculoService;
+import com.samara.service.SalarioCalculoService;
 
 @ManagedBean(name="salarioConsolidadoBean")
 @ViewScoped

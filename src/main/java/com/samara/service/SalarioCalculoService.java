@@ -1,4 +1,4 @@
-package service;
+package com.samara.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
