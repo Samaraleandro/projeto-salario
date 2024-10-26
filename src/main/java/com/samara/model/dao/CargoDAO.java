@@ -34,7 +34,7 @@ public class CargoDAO {
         return listaCargos;
     }
     
-    public Cargo buscarPorId(int id) throws SQLException {
+    public Cargo buscarCargoPorId(int id) throws SQLException {
         String sql = "SELECT id, nome FROM cargo WHERE id = ?";
         Cargo cargo = null;
 

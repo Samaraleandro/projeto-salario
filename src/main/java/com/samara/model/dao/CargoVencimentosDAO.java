@@ -44,7 +44,7 @@ public class CargoVencimentosDAO {
 		return listaCargoVencimentos;
 	}
 
-	public CargoVencimentos buscarPorId(int id) throws SQLException {
+	public CargoVencimentos buscarCargoVencimentosPorId(int id) throws SQLException {
 		String sql = "SELECT * FROM cargo_vencimentos WHERE id = ?";
 		CargoVencimentos cargoVencimentos = null;
 

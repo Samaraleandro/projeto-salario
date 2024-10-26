@@ -37,7 +37,7 @@ public class VencimentoDAO {
 		return listaVencimentos;
 	}
 
-	public Vencimento buscarPorId(int id) throws SQLException {
+	public Vencimento buscarVencimentoPorId(int id) throws SQLException {
 		String sql = "SELECT * FROM vencimentos WHERE id = ?";
 		Vencimento vencimento = null;
 

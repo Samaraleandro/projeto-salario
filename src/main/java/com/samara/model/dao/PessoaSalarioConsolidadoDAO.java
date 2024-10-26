@@ -10,17 +10,20 @@ import java.util.List;
 import com.samara.model.Cargo;
 import com.samara.model.Pessoa;
 import com.samara.model.PessoaSalarioConsolidado;
-import com.samara.util.Conexao;
 
 public class PessoaSalarioConsolidadoDAO {
+	private Connection connection;
+	
+	public PessoaSalarioConsolidadoDAO(Connection connection) {
+		this.connection = connection;
+	}
 
     public List<PessoaSalarioConsolidado> buscarPessoasSalarios() {
         List<PessoaSalarioConsolidado> listaPessoaSalarioConsolidado = new ArrayList<>();
-        String query = "SELECT pessoa_id, nome_pessoa, nome_cargo, salario FROM pessoa_salario_consolidado order by pessoa_id";
+        String sql = "SELECT pessoa_id, nome_pessoa, nome_cargo, salario FROM pessoa_salario_consolidado order by pessoa_id";
 
-        try (Connection conn = Conexao.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        	ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Pessoa pessoa = new Pessoa();

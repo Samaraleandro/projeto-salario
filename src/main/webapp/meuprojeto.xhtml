@@ -7,11 +7,15 @@
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Lista de Pessoas</title>
+    <h:outputStylesheet name="styles.css"/> 
 </h:head>
 <h:body>
-    <h1>Lista de Pessoas</h1>
+    <h1>Listagem de Pessoas</h1>
 
     <h:form>
+    <h:commandButton value="Calcular/recalcular salários" action="#{salarioConsolidadoBean.calcularSalarios}" disabled="#{salarioBean.calculando}"  styleClass="btn"/>
+    
+    <p:panel rendered="#{salarioConsolidadoBean.mostrarTabela}" styleClass="dataTable">
         <p:dataTable var="pessoaSalario" value="#{salarioConsolidadoBean.listaPessoasSalarios}"
                      paginator="true" rows="10" emptyMessage="Nenhum resultado encontrado">
 
@@ -32,8 +36,9 @@
             </p:column>
 
         </p:dataTable>
+        </p:panel>
 
-        <h:commandButton value="Calcular Salários" action="#{salarioConsolidadoBean.calcularSalarios}"/>
+        
     </h:form>
 </h:body>
 </html>
