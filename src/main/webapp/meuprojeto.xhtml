@@ -13,7 +13,7 @@
     <h1>Listagem de Pessoas</h1>
 
     <h:form>
-    <h:commandButton value="Calcular/recalcular salários" action="#{salarioConsolidadoBean.calcularSalarios}" disabled="#{salarioBean.calculando}"  styleClass="btn"/>
+    <h:commandButton value="Calcular/recalcular salários" action="#{salarioConsolidadoBean.calcularSalarios}" styleClass="btn"/>
     
     <p:panel rendered="#{salarioConsolidadoBean.mostrarTabela}" styleClass="dataTable">
         <p:dataTable var="pessoaSalario" value="#{salarioConsolidadoBean.listaPessoasSalarios}"

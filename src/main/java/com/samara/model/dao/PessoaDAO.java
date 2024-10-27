@@ -76,6 +76,25 @@ public class PessoaDAO {
 		return pessoa;
 	}
 	
+    public void inserirPessoa(Pessoa pessoa) throws SQLException {
+        String sql = "INSERT INTO pessoa (nome, cidade, email, cep, endereco, pais, usuario, telefone, data_nascimento, cargo_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, pessoa.getNome());
+            stmt.setString(2, pessoa.getCidade());
+            stmt.setString(3, pessoa.getEmail());
+            stmt.setString(4, pessoa.getCep());
+            stmt.setString(5, pessoa.getEndereco());
+            stmt.setString(6, pessoa.getPais());
+            stmt.setString(7, pessoa.getUsuario());
+            stmt.setString(8, pessoa.getTelefone());
+            stmt.setString(9, pessoa.getDataNascimento());
+            stmt.setInt(10, pessoa.getCargo().getId());
+
+            stmt.executeUpdate();  
+        }
+    }
+	
     public void deletarPessoa(int id) throws SQLException {
         String sql = "DELETE FROM pessoa WHERE id = ?";
         
